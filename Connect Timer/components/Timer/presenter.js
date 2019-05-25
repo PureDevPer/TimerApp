@@ -12,6 +12,7 @@ function formatTime(time){
 
 class Timer extends Component{
     
+    // componentWillReceiveProps: Everytime we will get props
     componentWillReceiveProps(nextProps){
         const currentProps = this.props;
         //console.log(`The current isplaying is: ${currentProps.isPlaying} and the new isPlaying are ${nextProps.isPlaying}`);
