@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Button from "../Button";
+import {LinearGradient} from "expo";
 
 function formatTime(time){
     let minutes = Math.floor(time/60);
@@ -65,36 +66,39 @@ class Timer extends Component{
             addSecondDryer 
         } = this.props;
         return(
-            <View style={styles.container}>
-                <StatusBar barStyle={"light-content"} />
-                <View style={styles.upper}>
-                    <Text style={styles.time}>
-                        {formatTime(timerDuration - elapsedTime)}
-                    </Text>
-                </View>
-                <View style={styles.lower}>
-                    {!isPlaying && (
-                        <Button iconName="play-circle" onPress={startTimer}/>
-                    )}
-                    {isPlaying && (
-                        <Button iconName="stop-circle" onPress={restartTimer}/>
-                    )}
-                </View>
+            <LinearGradient
+                colors={['#7F7FD5', '#91EAE4', '#86A8E7']}
+                style={styles.container}
+            >
+                    <StatusBar barStyle={"light-content"} />
+                    <View style={styles.upper}>
+                        <Text style={styles.time}>
+                            {formatTime(timerDuration - elapsedTime)}
+                        </Text>
+                    </View>
+                    <View style={styles.lower}>
+                        {!isPlaying && (
+                            <Button iconName="play-circle" onPress={startTimer}/>
+                        )}
+                        {isPlaying && (
+                            <Button iconName="stop-circle" onPress={restartTimer}/>
+                        )}
+                    </View>
 
-                <View style={styles.upper}>
-                    <Text style={styles.time}>
-                        {formatTime(timerDurationDryer - elapsedTimeDryer)}
-                    </Text>
-                </View>
-                <View style={styles.lower}>
-                    {!isPlayingDryer && (
-                        <Button iconName="play-circle" onPress={startTimerDryer}/>
-                    )}
-                    {isPlayingDryer && (
-                        <Button iconName="stop-circle" onPress={restartTimerDryer}/>
-                    )}
-                </View>
-            </View>
+                    <View style={styles.upper}>
+                        <Text style={styles.time}>
+                            {formatTime(timerDurationDryer - elapsedTimeDryer)}
+                        </Text>
+                    </View>
+                    <View style={styles.lower}>
+                        {!isPlayingDryer && (
+                            <Button iconName="play-circle" onPress={startTimerDryer}/>
+                        )}
+                        {isPlayingDryer && (
+                            <Button iconName="stop-circle" onPress={restartTimerDryer}/>
+                        )}
+                    </View>
+             </LinearGradient>
         )
     }
 }
@@ -102,7 +106,7 @@ class Timer extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#CE0B24"
+        backgroundColor: "transparent"
     },
     upper: {
         flex: 2,

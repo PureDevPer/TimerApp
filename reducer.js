@@ -50,7 +50,7 @@ function addSecondDryer() {
 
 // Reducer
 
-const TIME_DURATION = 960;
+const TIME_DURATION = 990;
 const TIME_DURATION_DRYER = 2940;
 
 const initialState = {
